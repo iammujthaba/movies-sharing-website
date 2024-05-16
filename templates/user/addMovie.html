@@ -1,0 +1,71 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<head>
+    <link rel="stylesheet" href="{% static 'homeAssets/css/addMovieStyle.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .optional {
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+
+    <main>
+        <section class="add-movie-section">
+            <h2>Add a New Movie</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="title">Movie Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="poster">Poster:</label>
+                <input type="file" id="poster" name="poster" accept="image/*" required>
+
+                <label for="description">Description: <span class="optional">(optional)</span></label>
+                <textarea id="description" name="description"></textarea>
+
+                <label for="release-date">Release Date:</span></label>
+                <input type="date" id="release-date" name="release">
+
+                <label for="actors1">Actors 1:</label>
+                <input type="text" id="actors1" name="actors1" required>
+                
+                <label for="actors2">Actors 2: <span class="optional">(optional)</span></label>
+                <input type="text" id="actors2" name="actors2">
+                
+                <label for="actors3">Actors 3: <span class="optional">(optional)</span></label>
+                <input type="text" id="actors3" name="actors3">                
+
+                <label for="category">Category:</label>
+
+                
+                
+
+                <select id="category" name="category" required>
+                    <option value="">Select a category</option>
+
+                    {% for i in links %}
+                    <option value="{{i.name}}">{{i.name}}</option>
+                    {% endfor %}
+
+                    <!-- <option value="comedy">Comedy</option>
+                    <option value="drama">Drama</option> -->
+                    <!-- Add more categories as needed -->
+                </select>
+                
+
+                <label for="trailer">YouTube Trailer Link:</label>
+                <input type="url" id="trailer" name="trailer" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+{% endblock %}

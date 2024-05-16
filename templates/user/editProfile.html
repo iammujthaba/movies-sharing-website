@@ -1,0 +1,65 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .edit-container {
+    max-width: 500px;
+    margin: auto;
+}
+
+.edit-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-form label {
+    font-weight: bold;
+}
+
+.edit-form input[type="text"],
+.edit-form input[type="email"],
+.edit-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.edit-form .btn-primary {
+    margin-top: 10px;
+}
+
+</style>
+<div class="container my-5">
+    <div class="edit-container">
+        <h2 class="mb-4">Edit Profile</h2>
+        {% if user.is_authenticated %}
+        <form class="edit-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                {{ form.username }}
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                {{ form.email }}
+            </div>
+            <div class="mb-3">
+                <label for="new_password" class="form-label">New Password</label>
+                {{ form.new_password }}
+            </div>
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary" id="saveButton">Save Changes</button>
+            </div>
+        </form>
+        {% endif %}
+        <div class="message-area message-error" id="messageArea" style="display: none;">
+            <!-- Error or success messages will be displayed here -->
+        </div>
+    </div>
+</div>
+{% endblock %}

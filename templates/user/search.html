@@ -1,0 +1,67 @@
+{% extends 'user/base.html' %}
+{% load static %}
+
+<!-- for base.html meta, title -->
+{% block metadescription %}
+    we have verty of movies.
+{% endblock %}
+
+{% block title %}
+    search
+{% endblock %}
+
+{% block content %}
+
+    <div class="p-1 mb-1" style="margin-left: 15px;">
+        <h4 style="color: azure;">searched for: <b>'{{query}}'</b></h4>
+    </div>
+
+
+<div class="album py-5">
+    <div class="container" style="background-color:#212529;">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+            <!-- Your movie cards here -->
+            {% for movie in movies %}
+                <div class="col">
+                    <section class="latest-movies">
+                        <div class="movie-list">
+                            <!-- Example movie card -->
+                            <div class="movie-card">
+                                <div class="movie-card-header">
+                                    <img src="{{ movie.image_1.url }}" alt="Movie Poster">
+                            
+                            </div>
+                                <div class="movie-card-body">
+                                    <h3>{{ movie.name }}</h3>
+                                    <p>Release Date: {{ movie.date }}</p>
+                                    <p>Actors: {{ movie.name }}</p>
+                                    <p>Category: {{ movie.category }}</p>
+                                    <a href="{% url 'projectApp:viewMovie' movie.id %}" class="details-link">View Details</a>
+                                </div>
+                            </div>
+                            <!-- Add more movie cards as needed -->
+                        </div>
+                    </section>
+                </div>
+                {% empty %}
+
+                <div>
+                    <h3 style="color: azure; text-align: center;"> 0 Result Found </h3>
+                </div>
+
+                {% endfor %}
+        </div>
+    </div>
+</div>
+
+    
+</div>
+
+{% endblock %}
+
+
+<!-- ------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------ -->
+
+

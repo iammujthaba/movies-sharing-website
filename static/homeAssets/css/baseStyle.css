@@ -1,0 +1,22 @@
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    transition: all 0.3s;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.navbar {
+    background-color: #D3D3D3;
+}

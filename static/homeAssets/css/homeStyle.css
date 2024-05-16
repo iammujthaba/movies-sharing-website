@@ -1,0 +1,161 @@
+/* Reset default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body and general styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: #f5f5f5;
+    color: #333;
+}
+
+/* Navigation bar styles */
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    margin: 0;
+}
+
+.navbar nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-right: 1.5rem;
+}
+
+.navbar nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar nav ul li a:hover {
+    background-color: #555;
+}
+
+/* Main content area */
+
+
+
+h2 {
+    color: #eeeeee;
+    margin-bottom: 15px;
+}
+
+/* Search section */
+.search-section {
+    text-align: center;
+}
+
+.search-section form {
+    display: inline-block;
+    width: 100%;
+    max-width: 500px;
+}
+
+.search-section input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.search-section button {
+    padding: 10px 20px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-section button:hover {
+    background-color: #555;
+}
+
+/* Movie list styles */
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.movie-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+}
+
+.movie-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.movie-card h3 {
+    margin-top: 10px;
+    color: #333;
+    font-size: 18px;
+}
+
+.movie-card p {
+    color: #555;
+}
+
+.movie-card .details-link {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.movie-card .details-link:hover {
+    text-decoration: underline;
+}
+.movie-card-body p {
+    margin-top: 0;
+    margin-bottom: 3px;
+}
+
+
+.movie-card {
+    position: relative;
+    /* Add other styles for the movie card */
+}
+
+.movie-card-header {
+    position: relative;
+}
+
+.favorite-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.favorite-icon:hover {
+    color: #ff6b6b;
+}
+
+

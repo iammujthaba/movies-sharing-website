@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Movie</title>
+    <style>
+        /* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Form styles */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Input field styles */
+input[type="text"],
+input[type="file"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Submit button styles */
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Submit button hover effect */
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Label styles */
+label {
+    font-weight: bold;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+    /* Adjust form width for smaller screens */
+    form {
+        width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <h1>Edit Movie</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" value="{{ movie.name }}"><br><br>
+
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description">{{ movie.description }}</textarea><br><br>
+
+        <label for="release">Release Year:</label><br>
+        <input type="text" id="release" name="release" value="{{ movie.date }}"><br><br>
+
+        <label for="actors1">Actor 1:</label><br>
+        <input type="text" id="actors1" name="actors1" value="{{ movie.actors_1 }}"><br><br>
+
+        <label for="actors2">Actor 2:</label><br>
+        <input type="text" id="actors2" name="actors2" value="{{ movie.actors_2 }}"><br><br>
+
+        <label for="actors3">Actor 3:</label><br>
+        <input type="text" id="actors3" name="actors3" value="{{ movie.actors_3 }}"><br><br>
+
+        <label for="category">Category:</label><br>
+        <input type="text" id="category" name="category" value="{{ movie.category }}"><br><br>
+
+        <label for="trailer">Trailer Link:</label><br>
+        <input type="text" id="trailer" name="trailer" value="{{ movie.link }}"><br><br>
+
+        <label for="poster">Poster Image:</label><br>
+        <figure>
+            <span>
+                <img src="{{movie.image_1.url}}" alt="{{movie.name}}">
+            </span>
+        </figure>
+        <input type="file" id="poster" name="poster"><br><br>
+
+        <input type="submit" value="Save Changes">
+    </form>
+</body>
+</html>
